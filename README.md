@@ -76,13 +76,13 @@ Search and Replace String Using Groovy Script
     def doReplace(search_string, replace_string) {
     def segment_count = 0
 
-    //An item from the OmegaT application is called "console." At the base of the script interface, it represents the logging window. Only the three methods print, println, and clear are available. The ResourceBundle called "res" is used to translate the script into several languages.
-    console.println(res.getString("description"));
-
-   //Similar to "console," "project" is bound to OmegaT. This is the project that is presently open. The all Entries member returns all of the project's segments, and each segment is processed by a Groovy function between... }. "ste" is the name of the currently 
-    processed segment (for SourceTextEntry)
-    project.allEntries.each { ste ->
-
+        //An item from the OmegaT application is called "console." At the base of the script interface, it represents the logging window. Only the three methods print,         println, and clear are available. The ResourceBundle called "res" is used to translate the script into several languages.
+        console.println(res.getString("description"));
+    
+        //Similar to "console," "project" is bound to OmegaT. This is the project that is presently open. The all Entries member returns all of the project's segments,         and each segment is processed by a Groovy function between... }. "ste" is the name of the currently 
+        processed segment (for SourceTextEntry)
+ 
+        project.allEntries.each { ste ->
         // Each segment has a source text, stored here in the source variable.
         source = ste.getSrcText();
         
