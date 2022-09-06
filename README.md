@@ -113,3 +113,16 @@ Search and Replace String Using Groovy Script
     }
 
     console.println(res.getString("modified_segments") + segment_count);
+
+
+    NOTE: Because the groovy class returns an error when expecting an EOF, I discovered '? ' @ line 9, column 25, I'm using the following Groovy code to generate a               random number. I can test it in, say, Groovy Web Console (https://groovyconsole.appspot.com/) and it works, but when I try to run it in, it fails.
+    
+          Line 25 contains some extra unicode characters. When you convert it to hex, you get: 64 65 66 20 72 61 6e 20 3d 20 .....
+          Now if you convert this hex back to ascii, you will get : def ran = Math.abs(â€‹ranInt)â€‹%20â€‹0;
+
+        Code: log.info ">>run"
+              Random random = new Random()
+              def ranInt = random.nextInt()
+              def ran = Math.abs(​ranInt)​%20​0;
+              log.info ">>sleep counter:"+flowVars.counter+" ran: "+ran
+              sleep(ran)
