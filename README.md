@@ -1,43 +1,38 @@
 # Script_Groovy
 Search and Replace String Using Groovy Script
-/*
- *
- * @author  Aron Malabao
- * @date    08-03-2022
- * @version 0.3.1
- */
-
-//The two lines after that enable the script to create a beautiful GUI for the text interface. A Groovy class called SwingBuilder is used to create GUIs almost as quickly as HTML forms.
-import groovy.swing.SwingBuilder
-
-
-//The SearchReplaceForm class is present to store the form's data.Two fields, search and replace, represent the text to be searched for and changed, respectively. The SwingBuilder component 
-uses these fields to update the variables when the user makes changes to them in the GUI.
-
-import java.awt.BorderLayout as BL
-
-// The @Bindable annotation is required to take into accounts the values in the form 
-import groovy.beans.Bindable
-
-// The SearchReplaceForm class is here to hold the data from the form. Search and replace are two fields representing the text to search and to replace,respectively. These fields are used by the SwingBuilder component which will.Update the variables when the user changes them in the GUI. 
-@Bindable
-class FormData { String search, replace }
-
-// You can use these two variables to pre-define the values of the search and replace fields
-def search_string  = ""
-def replace_string = ""
-
-def formData = new FormData()
-formData.search = search_string
-formData.replace = replace_string
-
-//Currently, the doReplace function does nothing on its own. We'll create a basic graphical user interface (GUI) with a button to start the replacement and a field for the user to enter search and replace strings
-new SwingBuilder().edt {
-    frame(title:res.getString("name"), size: [350, 200], show: true) {
-        borderLayout(vgap: 5)
-
+        /*
+        *
+        * @author  Aron Malabao
+        * @date    08-03-2022
+        * @version 0.3.1
+        */
+        
         //The two lines after that enable the script to create a beautiful GUI for the text interface. A Groovy class called SwingBuilder is used to create GUIs almost         as quickly as HTML forms.
         import groovy.swing.SwingBuilder
+        
+        //The SearchReplaceForm class is present to store the form's data.Two fields, search and replace, represent the text to be searched for and changed,                    respectively. The SwingBuilder component 
+        uses these fields to update the variables when the user makes changes to them in the GUI.
+        import java.awt.BorderLayout as BL
+        
+        // The @Bindable annotation is required to take into accounts the values in the form 
+        import groovy.beans.Bindable
+        
+        // The SearchReplaceForm class is here to hold the data from the form. Search and replace are two fields representing the text to search and to                         replace,respectively. These fields are used by the SwingBuilder component which will.Update the variables when the user changes them in the GUI. 
+        @Bindable
+        class FormData { String search, replace }
+        
+        // You can use these two variables to pre-define the values of the search and replace fields
+        def search_string  = ""
+        def replace_string = ""
+        
+        def formData = new FormData()
+        formData.search = search_string
+        formData.replace = replace_string
+
+        //Currently, the doReplace function does nothing on its own. We'll create a basic graphical user interface (GUI) with a button to start the replacement and a           field for the user to enter search and replace strings
+        new SwingBuilder().edt {
+        frame(title:res.getString("name"), size: [350, 200], show: true) {
+        borderLayout(vgap: 5
         
         panel(constraints: BL.CENTER,
         border: compoundBorder([
