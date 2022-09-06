@@ -36,6 +36,9 @@ new SwingBuilder().edt {
     frame(title:res.getString("name"), size: [350, 200], show: true) {
         borderLayout(vgap: 5)
 
+        //The two lines after that enable the script to create a beautiful GUI for the text interface. A Groovy class called SwingBuilder is used to create GUIs almost         as quickly as HTML forms.
+        import groovy.swing.SwingBuilder
+        
         panel(constraints: BL.CENTER,
         border: compoundBorder([
             emptyBorder(10),
